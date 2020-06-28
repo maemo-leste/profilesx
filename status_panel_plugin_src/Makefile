@@ -4,7 +4,7 @@ SOURCES = profilesx-status-panel-plugin.c
 MARSHAL_LIST=profile_changed_marshal.h profile_changed_marshal.c
 BUILDDIR = ../build
 LIB=$(BUILDDIR)/profilesx-sp-plugin.so
-PKG_FLAGS=$(shell pkg-config hildon-1 libhildondesktop-1 profile --libs --cflags)
+PKG_FLAGS=$(shell pkg-config gconf-2.0 hildon-1 libhildondesktop-1 profile --libs --cflags)
 CCFLAGS=-shared
 CC=gcc
 
