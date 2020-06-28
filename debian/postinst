@@ -1,0 +1,5 @@
+#!/bin/sh
+gtk-update-icon-cache --force /usr/share/icons/hicolor
+update-sudoers
+
+

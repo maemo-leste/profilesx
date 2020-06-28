@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=ProfilesX
+Comment=Extended Profiles Statuspanel plugin
+Icon=general_email
+Categories=permanent
+Type=default
+X-Path=profilesx-sp-plugin.so

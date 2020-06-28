@@ -1,0 +1,37 @@
+profilesx (0.5) unstable; urgency=low
+
+  * works now - again
+  * fixed many bugs :-)
+  * hides builtin profile statusbar menu button
+  * let you choose ogg files
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 19 Jun 2010 16:40:03 +0200
+
+profilesx (0.4) unstable; urgency=low
+
+  * profile names can now include spaces
+  * sound preview works even if "silent" profile is active (thanks to qwerty12)
+  * code clean up
+  * .aac ringtones selectable from filemanager
+  * removed unused profile options from silent profile editor 
+    (tone selector, volume slider, soundlevel ...)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Wed, 21 Apr 2010 01:41:45 +0200
+
+profilesx (0.3) unstable; urgency=low
+
+  * missed one status-menu icon
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 17 Apr 2010 13:07:50 +0200
+
+profilesx (0.2) unstable; urgency=low
+
+  * changed section field in debian/control
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 17 Apr 2010 12:54:45 +0200
+
+profilesx (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 12 Apr 2010 19:57:48 +0200

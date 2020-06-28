@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Control Panel ProfilesX
+Comment=Extended Profiles control
+Type=HildonControlPanelPlugin
+Icon=profilesx_cp_setup
+X-control-panel-plugin=profilesx-cp-plugin.so
+Categories=personalisation

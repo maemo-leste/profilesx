@@ -1,0 +1,122 @@
+profilesx (1.6) unstable; urgency=low
+
+  * fixed bug with "whitespace only" profile name
+  * fixed localization of status-menu title
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sun, 29 Jan 2012 22:53:42 +0100
+
+profilesx (1.5) unstable; urgency=low
+
+  * add portrait mode support in status area menu dialog
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 12 Sep 2011 00:07:16 +0200
+
+profilesx (1.4) unstable; urgency=low
+
+  * fixed new bug with icon selection for builtin icons
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 12 Mar 2011 14:09:22 +0100
+
+profilesx (1.3) unstable; urgency=low
+
+  * fixed custom icon setting (icon couldn't be on next reboot)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Fri, 11 Mar 2011 00:19:31 +0100
+
+profilesx (1.2) unstable; urgency=low
+
+  * make dialogs usable in portrait mode
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 14 Feb 2011 22:30:21 +0100
+
+profilesx (1.1) unstable; urgency=low
+
+  * configure delay for autoanswer
+  * fixed minor bug in controlpanel plugin (initial value for disable proximity check)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 14 Feb 2011 22:18:02 +0100
+
+profilesx (1.0) unstable; urgency=low
+
+  * changed menu button label back to the builtin name Profile
+  * changed version numbering (version 0.10 wasn't recognized
+    as newer version)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Thu,  3 Feb 2011 23:21:37 +0100
+
+profilesx (0.10) unstable; urgency=low
+
+  * another option "Disable Proximity Check" for
+    the autoanswer.
+
+ -- Nicolai Hess <nicolaihess@web.de>  Thu,  3 Feb 2011 21:49:43 +0100
+
+profilesx (0.9) unstable; urgency=low
+
+  * fixed segfault in is_proximity_covered
+  * changed button label to "ProfilesX"
+
+ -- Nicolai Hess <nicolaihess@web.de>  Thu, 20 Jan 2011 20:34:50 +0100
+
+profilesx (0.8) unstable; urgency=low
+
+  * Fixed bug with preview volume scale (was linear, but
+    I think reciproke cubic matches the real ringtone volume better)
+  * new feature: enable auto answer for profiles
+  * new feature: enable turn speaker on for profiles
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 17 Jan 2011 22:00:06 +0100
+
+profilesx (0.7) unstable; urgency=low
+
+  * applied a patches from qwerty12, this patch fixes a bug in the
+    where long filenames scrolled the UI horizontal.
+    And some more UI enhancement to make the app look more like the
+    original app.(thank you qwerty12!)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat,  3 Jul 2010 23:12:49 +0200
+
+profilesx (0.6) unstable; urgency=low
+    
+    * fixed saving icon config in config file (if config file 
+      doesn't exists yet)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 21 Jun 2010 14:10:39 +0200
+
+profilesx (0.5) unstable; urgency=low
+
+  * works now - again
+  * fixed many bugs :-)
+  * hides builtin profile statusbar menu button
+  * let you choose ogg files for ringtones
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 19 Jun 2010 16:41:58 +0200
+
+profilesx (0.4) unstable; urgency=low
+
+  * profile names can now include spaces
+  * sound preview works even if "silent" profile is active (thanks to qwerty12)
+  * code clean up
+  * .aac ringtones selectable from filemanager
+  * removed unused profile options from silent profile editor 
+    (tone selector, volume slider, soundlevel ...)
+
+ -- Nicolai Hess <nicolaihess@web.de>  Wed, 21 Apr 2010 01:41:45 +0200
+
+profilesx (0.3) unstable; urgency=low
+
+  * missed one status-menu icon
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 17 Apr 2010 13:07:50 +0200
+
+profilesx (0.2) unstable; urgency=low
+
+  * changed section field in debian/control
+
+ -- Nicolai Hess <nicolaihess@web.de>  Sat, 17 Apr 2010 12:54:45 +0200
+
+profilesx (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Nicolai Hess <nicolaihess@web.de>  Mon, 12 Apr 2010 19:57:48 +0200

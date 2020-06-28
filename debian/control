@@ -1,0 +1,68 @@
+Source: profilesx
+Priority: extra
+Maintainer: Nicolai Hess <nicolaihess@web.de>
+Build-Depends: debhelper (>= 5), libgtk2.0-dev, libhildon1-dev, libprofile-dev, profile-data-dev, libosso-dev, libhildondesktop1-dev, libglib2.0-dev, libhildonfm2-dev, hildon-control-panel-dev, libgstreamer0.10-dev, libdbus-1-dev, libpulse-dev
+Standards-Version: 3.7.2
+Section: user/system
+
+Package: profilesx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Extended Ringtone Profiles
+ Control-panel and status-panel to add and manage
+ additional ringtone profiles. And enable two additional
+ options: Autoanswer, enable loudspeaker. 
+XB-Maemo-Display-Name:ProfilesX Extended Profiles Manager 
+XSBC-Bugtracker: mailto:nicolaihess@web.de
+XB-Maemo-Icon-26:
+ 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
+ bryhyYs9/ws04ipGcdzGhgAAAABJRU5ErkJggg==
+ ====
