@@ -5,5 +5,5 @@ Name=Control Panel ProfilesX
 Comment=Extended Profiles control
 Type=HildonControlPanelPlugin
 Icon=profilesx_cp_setup
-X-control-panel-plugin=profilesx-cp-plugin.so
+X-control-panel-plugin=libprofilesx-cp-plugin.so
 Categories=personalisation

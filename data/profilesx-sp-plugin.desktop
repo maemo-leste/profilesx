@@ -4,4 +4,4 @@ Comment=Extended Profiles Statuspanel plugin
 Icon=general_email
 Categories=permanent
 Type=default
-X-Path=profilesx-sp-plugin.so
+X-Path=libprofilesx-sp-plugin.so
