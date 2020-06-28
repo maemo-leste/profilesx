@@ -1,3 +1,10 @@
+profilesx (1.7) unstable; urgency=low
+
+  * Initial Maemo Leste import
+  * Port to gst 1.0
+
+ -- Merlijn Wajer <merlijn@wizzup.org>  Sun, 28 Jun 2020 17:50:51 +0200
+
 profilesx (1.6) unstable; urgency=low
 
   * fixed bug with "whitespace only" profile name
