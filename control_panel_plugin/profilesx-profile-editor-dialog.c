@@ -35,12 +35,13 @@ struct _editor_data_t
 
   GtkWidget* keypadsoundLevelButton;
   GtkWidget* touchscreensoundLevelButton;
+  GtkWidget* touchscreenvibratingcheckbutton;
   GtkWidget* systemsoundLevelButton;
 
   GtkListStore* keypadsoundLevel;
   GtkListStore* touchscreensoundLevel;
   GtkListStore* systemsoundLevel;
-
+  
   GtkWidget* autoAnswerButton;
   GtkWidget* disableProximityCheck;
   GtkWidget* autoAnswerDelaySlider;
@@ -286,10 +287,11 @@ set_profile_values(const gchar* profile_name, editor_data_t* data)
   gtk_range_set_value(GTK_RANGE(data->imVolumeSlider), data->profile_data->im_volume);
   gtk_range_set_value(GTK_RANGE(data->emailVolumeSlider), data->profile_data->email_volume);
 
-  if(data->profile_data->vibrating_enabled)
-    hildon_check_button_set_active(HILDON_CHECK_BUTTON(data->vibratingCheckbutton), TRUE);
-  else
-    hildon_check_button_set_active(HILDON_CHECK_BUTTON(data->vibratingCheckbutton), FALSE);
+  hildon_check_button_set_active(HILDON_CHECK_BUTTON(data->vibratingCheckbutton),
+                                  data->profile_data->vibrating_enabled);
+  
+  hildon_check_button_set_active(HILDON_CHECK_BUTTON(data->touchscreenvibratingcheckbutton),
+                                  data->profile_data->touch_vibrating_enabled);
 
   if(data->profile_data->autoanswer)
     hildon_check_button_set_active(HILDON_CHECK_BUTTON(data->autoAnswerButton), TRUE);
@@ -370,6 +372,8 @@ save_profile_values(const gchar* profile_name, editor_data_t* data)
 									    0);
 
   data->profile_data->vibrating_enabled = hildon_check_button_get_active(HILDON_CHECK_BUTTON(data->vibratingCheckbutton));
+  data->profile_data->touch_vibrating_enabled =
+               hildon_check_button_get_active(HILDON_CHECK_BUTTON(data->touchscreenvibratingcheckbutton));
   data->profile_data->autoanswer = hildon_check_button_get_active(HILDON_CHECK_BUTTON(data->autoAnswerButton));
   data->profile_data->disable_proximity_check = hildon_check_button_get_active(HILDON_CHECK_BUTTON(data->disableProximityCheck));
   data->profile_data->turn_speaker_on = hildon_check_button_get_active(HILDON_CHECK_BUTTON(data->turnSpeakerOnButton));
@@ -875,6 +879,7 @@ layout_dialog_widgets(const gchar* profile_name, editor_data_t* data, GtkWidget*
     gtk_box_pack_start(GTK_BOX(content_area), data->systemsoundLevelButton, TRUE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(content_area), data->keypadsoundLevelButton, TRUE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(content_area), data->touchscreensoundLevelButton, TRUE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(content_area), data->touchscreenvibratingcheckbutton, TRUE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(content_area), data->autoAnswerButton, TRUE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(auto_answer_box), data->autoAnswerDelaySlider, TRUE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(auto_answer_box), data->disableProximityCheck, TRUE, FALSE, 0);
@@ -931,6 +936,10 @@ init_editor_dialog_widgets(editor_data_t* data)
   data->touchscreensoundLevelButton = 
     create_sound_level_widget(data->touchscreensoundLevel,
 			      dgettext("osso-profiles", "profi_fi_touch_screen_sounds"));
+  data->touchscreenvibratingcheckbutton = hildon_check_button_new(HILDON_SIZE_FINGER_HEIGHT);
+  gtk_button_set_label(GTK_BUTTON(data->touchscreenvibratingcheckbutton),
+		       dgettext("osso-profiles", "profi_fi_touch_screen_vibrate"));
+  hildon_check_button_set_active(HILDON_CHECK_BUTTON(data->touchscreenvibratingcheckbutton), TRUE);
 
   data->systemsoundLevelButton = 
     create_sound_level_widget(data->systemsoundLevel,
