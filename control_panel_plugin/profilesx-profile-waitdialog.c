@@ -22,19 +22,23 @@
 #include <gtk/gtk.h>
 #include <libprofile.h>
 
+#define MAX_CHECKS 20
+
 struct _pdata
 {
   GtkWidget* dialog;
   gchar* profile_name;
   user_data_t* data;
   gboolean for_new;
+  guint timeoutcounter;
 };
 
 static  gboolean
 look_for_new_profile(gpointer data)
 {
   pdata* pata = (pdata*)data;
-  if(pata->for_new == profile_has_profile(pata->profile_name))
+  if(pata->for_new == profile_has_profile(pata->profile_name) ||
+      pata->timeoutcounter > MAX_CHECKS)
   {
     gdk_threads_enter();
     hildon_gtk_window_set_progress_indicator(pata->dialog, 0);
@@ -43,6 +47,7 @@ look_for_new_profile(gpointer data)
     gdk_threads_leave();
     g_free(pata->profile_name);
     g_free(pata);
+    ++pata->timeoutcounter;
     return FALSE;
   }
   return TRUE;
@@ -58,8 +63,10 @@ void show_progress_bar(const gchar* profile_name,
   pata->for_new = for_new;
   pata->data = data;
   pata->profile_name = g_strdup(profile_name);
-  g_timeout_add(1000, look_for_new_profile, pata);
+  pata->timeoutcounter = 0;
+  g_timeout_add(200, look_for_new_profile, pata);
   hildon_gtk_window_set_progress_indicator(dialog,
 					   1);
+  
   gtk_widget_set_sensitive(dialog, FALSE);
 }
