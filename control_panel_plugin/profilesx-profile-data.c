@@ -193,6 +193,10 @@ profilesx_store_profile_data(const gchar* profile_name,
 			   PROFILEKEY_SYSTEM_SOUND_LEVEL,
 			   profile_data->system_sound_level);
 
+  profile_set_value_as_bool(profile_name,
+			   PROFILEKEY_TOUCHSCREEN_VIBRATION,
+			   profile_data->touch_vibrating_enabled);
+
   store_icon_name(profile_name,
 		  profile_data->status_bar_icon_name);
   store_gconf_settings(profile_name,
@@ -264,6 +268,9 @@ profilesx_load_profile_data(const gchar* profile_name,
   
   profile_data->touchscreen_sound_level = profile_get_value_as_int(profile_name,
 								   PROFILEKEY_TOUCHSCREEN_SOUND_LEVEL);
+
+  profile_data->touch_vibrating_enabled = profile_get_value_as_bool(profile_name,
+								   PROFILEKEY_TOUCHSCREEN_VIBRATION);
   
   profile_data->system_sound_level = profile_get_value_as_int(profile_name,
 							      PROFILEKEY_SYSTEM_SOUND_LEVEL);

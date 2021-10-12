@@ -32,6 +32,7 @@ struct _profilesx_profile_data_t
   gint email_volume;
   gint keypad_sound_level;
   gint touchscreen_sound_level;
+  gboolean touch_vibrating_enabled;
   gint system_sound_level;
   gchar* status_bar_icon_name;
   gboolean autoanswer;

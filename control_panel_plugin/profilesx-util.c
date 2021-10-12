@@ -5,9 +5,7 @@
 
 void handle_error(GError* error)
 {
-  #if 0
-  printf("Error: %s\n", error->message);
-  #endif
+  fprintf(stderr, "Error: %s\n", error->message);
   g_error_free(error);
   error = NULL;
 }
@@ -27,7 +25,7 @@ GKeyFile* load_key_file()
   return keyFile;
 }
 
-int save_key_file(GKeyFile* keyFile, GError** error)
+gboolean save_key_file(GKeyFile* keyFile, GError** error)
 {
   gchar* data = NULL;
   gsize size;
@@ -40,7 +38,7 @@ int save_key_file(GKeyFile* keyFile, GError** error)
     g_free(data);
     return 1;
   }
-  int ret = g_file_set_contents(KEYFILE, data, size, error);
+  gboolean ret = g_file_set_contents(KEYFILE, data, size, error);
   g_free(data);
   if((*error))
   {
@@ -50,11 +48,11 @@ int save_key_file(GKeyFile* keyFile, GError** error)
   return ret;
 }
 
-int remove_profile(gchar* profile)
+gboolean remove_profile(gchar* profile)
 {
   GKeyFile* keyFile = load_key_file();
   GError* error = NULL;
-  int ret = 0;
+  gboolean ret = TRUE;
   if(g_key_file_has_group(keyFile, profile))
   {
     g_key_file_remove_group(keyFile, profile, NULL);
@@ -69,11 +67,11 @@ int remove_profile(gchar* profile)
   return ret;
 }
 
-int add_profile(gchar* profile)
+gboolean add_profile(gchar* profile)
 {
   GKeyFile* keyFile = load_key_file();
   GError* error = NULL;
-  int ret = 0;
+  gboolean ret = TRUE;
   if(!g_key_file_has_group(keyFile, profile))
   {
     g_key_file_set_string(keyFile, 
@@ -101,19 +99,21 @@ int main(int argc, char** argv)
 {
   if(argc!=3)
   {
+    fprintf(stderr, "Error: Wrong number of arguments\nusage: %s -[ra] [PROFILE]\n", argv[0]);
     return 1;
   }
 
   if(g_strcmp0(argv[1], "-r")==0)
   {
-    return remove_profile(argv[2]);
+    return !remove_profile(argv[2]);
   }
   else if(g_strcmp0(argv[1], "-a")==0)
   {
-    return add_profile(argv[2]);
+    return !add_profile(argv[2]);
   }
   else
   {
+    fprintf(stderr, "Error: either -r or -a must be specified\nusage: %s -[ra] [PROFILE]\n", argv[0]);
     return 1;
   }
 }

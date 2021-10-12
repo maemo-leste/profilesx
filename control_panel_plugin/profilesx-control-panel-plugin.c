@@ -35,8 +35,8 @@
 #define PROFILED_PATH "/com/nokia/profiled"
 #define PROFILED_SERVICE "com.nokia.profiled"
 
-#define RM_PROFILE_CMD "sudo /usr/bin/profilesx-util -r \"%s\""
-#define ADD_PROFILE_CMD "sudo /usr/bin/profilesx-util -a \"%s\""
+#define RM_PROFILE_CMD "sudo /usr/bin/profilesx_util -r \"%s\""
+#define ADD_PROFILE_CMD "sudo /usr/bin/profilesx_util -a \"%s\""
 #define CUSTOM_PROFILE_INI "/etc/profiled/80.profilesx.ini"
 
 
@@ -150,6 +150,27 @@ ask_user_for_profile_name(user_data_t* data)
   }
 }
 
+static gboolean run_profilesx_util(gchar* cmd)
+{
+    gint status = 0;
+    GError *error = NULL;
+    gboolean ret = g_spawn_command_line_sync(cmd, NULL, NULL, &status, &error);
+    if(ret && !error && status == 0)
+    {
+      return TRUE;
+    }
+    
+    if(status == 0)
+      g_critical("%s: Can not execute %s %s", __func__, cmd, error ? error->message : "");
+    else
+      g_critical("%s: %s failed with status %i %s", __func__, cmd, status, error ? error->message : "");
+    
+    if(error)
+      g_error_free(error);
+
+    return FALSE;
+}
+
 void
 new_profile(GtkButton* button, user_data_t* data)
 {
@@ -157,11 +178,7 @@ new_profile(GtkButton* button, user_data_t* data)
   if(new_profile_name!=NULL)
   {
     gchar* cmd = g_strdup_printf(ADD_PROFILE_CMD, new_profile_name);
-    gboolean ret = g_spawn_command_line_sync(cmd,
-					     NULL,
-					     NULL,
-					     NULL,
-					     NULL);
+    gboolean ret = run_profilesx_util(cmd);
     g_free(cmd);
     if(ret)
     {
@@ -189,12 +206,9 @@ delete_profile(GtkButton* button, user_data_t* data)
   gchar* list_value = get_selected_profile_name(data);
   if(list_value != NULL)
   {
+    gint status = 0;
     gchar* cmd = g_strdup_printf(RM_PROFILE_CMD, list_value);
-    gboolean ret = g_spawn_command_line_sync(cmd,
-					     NULL,
-					     NULL,
-					     NULL,
-					     NULL);
+    gboolean ret = run_profilesx_util(cmd);
     g_free(cmd);
     if(ret)
     {
