@@ -1,9 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
-Name=Profiles
+Name=profi_ti_cpa_profiles
 Comment=Extended Profiles control
 Type=HildonControlPanelPlugin
 Icon=profilesx_cp_setup
 X-control-panel-plugin=libprofilesx-cp-plugin.so
 Categories=personalisation
+X-Text-Domain=osso-profiles
