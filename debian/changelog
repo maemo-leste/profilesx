@@ -1,3 +1,11 @@
+profilesx (1.8) unstable; urgency=low
+
+  * Add support for touchscreen.vibration.enabled
+  * Improve debug output and user output of profilesx-util
+  * Fix bug where profiles could not be added or removed
+
+ -- Carl Klemm <car@uvos.xyz>  Wed, 20 Oct 2020 15:30:21 +0200
+
 profilesx (1.7) unstable; urgency=low
 
   * Initial Maemo Leste import
