@@ -20,6 +20,8 @@
 #include "profilesx-profile-data.h"
 #include <libprofile.h>
 #include <keys_nokia.h>
+#include <glib.h>
+#include <glib/gstdio.h>
 #include <gconf/gconf-client.h>
 #include <gio/gio.h>
 

@@ -20,6 +20,7 @@
 #include "profilesx-profile-waitdialog.h"
 #include "profilesx-control-panel-plugin.h"
 #include <gtk/gtk.h>
+#include <hildon/hildon-gtk.h>
 #include <libprofile.h>
 
 #define MAX_CHECKS 20
@@ -41,7 +42,7 @@ look_for_new_profile(gpointer data)
       pata->timeoutcounter > MAX_CHECKS)
   {
     gdk_threads_enter();
-    hildon_gtk_window_set_progress_indicator(pata->dialog, 0);
+    hildon_gtk_window_set_progress_indicator((GtkWindow*)pata->dialog, 0);
     gtk_widget_set_sensitive(pata->dialog, TRUE);
     fill_profiles_list_store(pata->data);
     gdk_threads_leave();
@@ -65,7 +66,7 @@ void show_progress_bar(const gchar* profile_name,
   pata->profile_name = g_strdup(profile_name);
   pata->timeoutcounter = 0;
   g_timeout_add(200, look_for_new_profile, pata);
-  hildon_gtk_window_set_progress_indicator(dialog,
+  hildon_gtk_window_set_progress_indicator((GtkWindow*)dialog,
 					   1);
   
   gtk_widget_set_sensitive(dialog, FALSE);

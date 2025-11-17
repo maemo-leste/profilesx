@@ -106,7 +106,7 @@ read_predefined_ringtones(editor_data_t* data)
   
   gchar* line;
   gchar* line_without_linebreak;
-  int length;
+  gsize length;
   gsize line_terminator;
   GtkListStore* current_list_store = NULL;
 

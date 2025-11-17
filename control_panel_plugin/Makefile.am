@@ -12,8 +12,8 @@ libprofilesx_cp_plugin_la_SOURCES = profilesx-control-panel-plugin.c \
 									profilesx-profile-data.c \
 									profilesx-profile-editor-dialog.c \
 									profilesx-profile-waitdialog.c
-libprofilesx_cp_plugin_la_CFLAGS = $(GSTBASE_CFLAGS) $(HILDONFM_CFLAGS) $(PROFILE_CFLAGS) $(HILDONCONTROLPANEL_CFLAGS) $(OSSO_CFLAGS) $(PULSE_CFLAGS)
-libprofilesx_cp_plugin_la_LIBADD = $(GSTBASE_LIBS) $(HILDONFM_LIBS) $(PROFILE_LIBS) $(HILDONCONTROLPANEL_LIBS) $(OSSO_LIBS) $(PULSE_LIBS)
+libprofilesx_cp_plugin_la_CFLAGS = $(GSTBASE_CFLAGS) $(HILDONFM_CFLAGS) $(PROFILE_CFLAGS) $(HILDONCONTROLPANEL_CFLAGS) $(OSSO_CFLAGS) $(PULSE_CFLAGS) $(GLIB_CFLAGS)
+libprofilesx_cp_plugin_la_LIBADD = $(GSTBASE_LIBS) $(HILDONFM_LIBS) $(PROFILE_LIBS) $(HILDONCONTROLPANEL_LIBS) $(OSSO_LIBS) $(PULSE_LIBS) $(GLIB_LIBS)
 libprofilesx_cp_plugin_la_LDFLAGS = -Wl,--as-needed -module -avoid-version
 
 install-data-hook:
