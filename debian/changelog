@@ -1,3 +1,9 @@
+profilesx (1.9) unstable; urgency=low
+
+  * Various compilation fixes
+
+ -- Merlijn Wajer <merlijn@wizzup.org>  Mon, 17 Nov 2025 16:19:38 +0100
+
 profilesx (1.8) unstable; urgency=low
 
   * Add support for touchscreen.vibration.enabled
